@@ -50,7 +50,13 @@ class LinkedList
 
     # method that returns the length of the singly linked list
     def length
-      raise NotImplementedError
+      count = 0
+      current = @head
+      while !current.nil?
+        count += 1
+        current = current.next
+      end
+      return count
     end
 
     # method that returns the value at a given index in the linked list

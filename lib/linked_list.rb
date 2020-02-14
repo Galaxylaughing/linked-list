@@ -102,7 +102,23 @@ class LinkedList
 
     # method to delete the first node found with specified value
     def delete(value)
-      raise NotImplementedError
+      return nil if @head.nil?
+      current = @head
+      previous = @head
+      complete = false
+      until complete || current.nil?
+        if current.data == value
+          if current == @head
+            @head = current.next
+          else
+            previous.next = current.next
+          end
+          complete = true
+        else
+          previous = current
+          current = current.next
+        end
+      end
     end
 
     # method to reverse the singly linked list

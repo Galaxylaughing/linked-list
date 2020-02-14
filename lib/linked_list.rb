@@ -38,13 +38,35 @@ class LinkedList
     # method to return the max value in the linked list
     # returns the data value and not the node
     def find_max
-      raise NotImplementedError
+      return nil if @head.nil?
+      current = @head
+      max = 0
+
+      until current.nil?
+        if current.data > max
+          max = current.data
+        end
+        current = current.next
+      end
+
+      return max
     end
 
     # method to return the min value in the linked list
     # returns the data value and not the node
     def find_min
-      raise NotImplementedError
+      return nil if @head.nil?
+      current = @head
+      min = current.data
+
+      until current.nil?
+        if current.data < min
+          min = current.data
+        end
+        current = current.next
+      end
+
+      return min
     end
 
 

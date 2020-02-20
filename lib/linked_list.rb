@@ -229,6 +229,33 @@ class LinkedList
       current.next = @head # make the last node link to first node
     end
 
+    def intersection(list_a_head, list_b_head)
+      intersection_list = nil
+
+      first = list_a_head
+      second = list_b_head
+
+      until first.nil? || second.nil?
+        if first.data == second.data
+          intersection_list = Node.new(first.data, intersection_list)
+          first = first.next
+          second = second.next
+        elsif first.value < second.value
+          first = first.next
+        else
+          second = second.next
+        end
+      end
+
+      # or, go through first
+      #    and create a hash of all elements
+      # then go through the second
+      #    and, if it's in the hash,
+      #    add it to the intersection list
+
+      return intersection_list
+    end
+
     private
 
     # return the last node itself

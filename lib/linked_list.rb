@@ -40,7 +40,7 @@ class LinkedList
     def find_max
       return nil if @head.nil?
       current = @head
-      max = 0
+      max = current.data
 
       until current.nil?
         if current.data > max

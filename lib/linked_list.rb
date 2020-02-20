@@ -180,7 +180,21 @@ class LinkedList
     # linked list links to a node already visited.
     # returns true if a cycle is found, false otherwise.
     def has_cycle
-      raise NotImplementedError
+      slow = @head
+      fast = @head
+      fast = fast.next unless fast.nil?
+
+      until fast.nil?
+        if fast == slow
+          return true
+        end
+
+        fast = fast.next
+        fast = fast.next unless fast.nil?
+        slow = slow.next
+      end
+
+      return false
     end
 
 
